@@ -1,0 +1,18 @@
+// COMPAS MIXINS
+@import "compass";
+
+// COMPONENTES DO BOOTSTRAP
+@import "componets/bootstrap-grid";
+@import "componets/forms";
+@import "componets/reboot";
+
+// VENDOR
+@import "vendor/config";
+@import "vendor/slick";
+
+// PAGES
+@import "pages/header";
+@import "pages/produtos-home";
+@import "pages/promocao";
+@import "pages/promocao-dia";
+@import "pages/footer";

@@ -1,0 +1,36 @@
+.footer
+{
+	background-color: #282828;
+	
+	.content-map
+	{
+		padding-top: 30px;
+		padding-bottom: 30px;
+		display: flex;
+		@include flexbox((flex-direction: row, justify-content: space-around, flex-wrap: wrap));
+		@media(max-width: $bp768 - 1px)
+		{
+			@include flexbox((justify-content: space-between));
+		}
+
+		@media(max-width: $bp480 - 60px)
+		{
+			@include flexbox((justify-content: space-between, flex-direction: column, align-items: center));
+			text-align: center;
+		}
+
+		.menu-produtos,
+		.footer-contato,
+		.footer-endereco
+		{
+			padding-bottom: 20px;
+			.item-menu
+			{
+				padding: 0;
+				margin: 0; 
+				display: block;
+				color: #fff;
+			}
+		}
+	}
+}

@@ -1,0 +1,50 @@
+.promo-day
+{
+	.list-day
+	{
+		.item-day
+		{
+			position: relative;
+			width: calc(100% / 2);
+			float: left;
+			padding-right: 5px;
+			padding-left: 5px;
+			transition: .3s;
+
+			@media(max-width: $bp768 - 1)
+			{
+				padding: 0;
+				padding-bottom: 10px;
+				width: 100%;
+			}
+
+			.content-destaque
+			{
+				opacity: 0;
+				position: absolute;
+				top: 5%;
+				left: 5%;
+				color: #fff;
+				transition: .3s;
+			}
+
+			&:hover
+			{
+				.content-destaque
+				{
+					opacity: 1;
+				}
+			}
+
+			.img-destaque
+			{
+				transition: .3s;
+
+				&:hover
+				{
+					filter: brightness(50%);
+				}
+			}
+		}
+	}
+}
