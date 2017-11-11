@@ -1,0 +1,155 @@
+p, h1, h2, h3, h4, h5, h6
+{
+	margin: 0;
+	padding: 0;
+}
+
+/*HEADER*/
+.navbar-dark .navbar-nav .nav-link
+{
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+table
+{
+	width: 100%;
+}
+
+.add-delete
+{
+	margin-top: 0px;
+}
+
+.add-insert:hover,
+.add-delete:hover,
+.add-atualizar:hover
+{
+	color: #fff;
+	text-decoration: none;
+}
+
+@media(min-width: 1200px)
+{
+	.container
+	{
+		max-width: 1250px;
+	}
+}
+
+.desativar
+{
+	margin-top: 30px;
+}
+
+/*FOOTER*/
+.content-footer
+{
+	background-color: #343a40;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 50px 0;
+}
+
+/*INSERIR*/
+.inserir-content
+{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.title-page h1
+{
+	font-size: 30px;
+	margin-bottom: 30px;
+	color: #333;
+	border-bottom: 4px solid #333;
+	padding-bottom: 10px;
+	border-bottom-right-radius: 20px; 
+}
+
+.form-control
+{
+	border: none;
+	border-bottom: 3px solid;
+	border-radius: 0;
+	margin-bottom: 30px;
+}
+
+.btn-adicionar
+{
+	border: none;
+	background-color: #343a40;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 10px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.btn-adicionar:hover
+{
+	background-color: #2c64a0;
+}
+
+.table-content
+{
+	border: 3px solid #333;
+	text-align: center;
+	font-size: 15px;
+}
+
+.margin-fornecedor
+{
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.head-table
+{
+	border-bottom: 3px solid #333;
+	color: #fff;
+	background-color: #333;
+}
+
+.content-head
+{
+	padding-right: 5px;
+	padding-left: 5px;
+	border-right: 2px solid #fff;
+}
+
+.content-body
+{
+	padding: 10px 5px;
+	border-bottom: 1px solid #a3a3a3;
+}
+
+.body-table:nth-child(odd)
+{
+	background-color: #595959;
+	color: #fff;
+}
+
+.scroll
+{
+	height: 330px;
+	overflow-y: scroll;
+}
+
+.form-margin
+{
+	margin-top: 50px;
+}
