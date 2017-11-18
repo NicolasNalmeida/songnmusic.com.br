@@ -8,7 +8,7 @@
 		include "inc-header.php";
 	?>
 	<section class="section container">
-		<h1 class="title border-detail">Os melhores <span class="strong-text">produtos</span></h1>
+		<h1 class="title border-detail">Instrumentos de <span class="strong-text">Corda</span></h1>
 		<div class="main-produto">
 			<?php 
 				require_once "class/Sql.php";
@@ -16,7 +16,7 @@
 				$conn = new Sql();
 				$crud = new Produtos();
 
-				$selectAll = $crud->select();
+				$selectAll = $crud->selectCordas();
 			?>
 			<ul class="list-prod clearfix">
 			<?php foreach ($selectAll as $value) {?>

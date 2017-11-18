@@ -23,9 +23,8 @@
 			</div>
 			<ul class="list-menu">
 				<li><a class="item-menu" href="index.php">Home</a></li>
-				<li><a class="item-menu" href="audio.php">Áudio</a></li>
-				<li><a class="item-menu" href="javascript:void(0)">Cordas</a></li>
-				<li><a class="item-menu" href="javascript:void(0)">Percussão</a></li>
+				<li><a class="item-menu" href="cordas.php">Cordas</a></li>
+				<li><a class="item-menu" href="percussao.php">Percussão</a></li>
 				<li><a class="item-menu" href="javascript:void(0)">Teclas</a></li>
 				<li><a class="item-menu" href="javascript:void(0)">Sorpro</a></li>
 				<li><a class="item-menu" href="javascript:void(0)">Mais Equipamentos</a></li>

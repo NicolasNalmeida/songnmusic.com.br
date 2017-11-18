@@ -8,7 +8,7 @@
 		include "inc-header.php";
 	?>
 	<section class="section container">
-		<h1 class="title border-detail">Os melhores <span class="strong-text">produtos</span></h1>
+		<h1 class="title border-detail">Promoção do mês: <span class="strong-text">TAGIMA</span></h1>
 		<div class="main-produto">
 			<?php 
 				require_once "class/Sql.php";
@@ -16,7 +16,7 @@
 				$conn = new Sql();
 				$crud = new Produtos();
 
-				$selectAll = $crud->select();
+				$selectAll = $crud->selectPromo();
 			?>
 			<ul class="list-prod clearfix">
 			<?php foreach ($selectAll as $value) {?>
@@ -34,7 +34,10 @@
 						</div>
 						<figcaption class="description-prod">
 							<p class="greatText strong-text"><?php echo $value['nomeProduto']; ?></p>
-							<p class="price">R$<span class="strong-text price-prod"><?php echo number_format($value['precoProduto'], 2, ',', '.'); ?></span></p>
+							<p class="price">R$<span class="strong-text price-prod"><?php
+							 $result = ($value['precoProduto'] * 0.10);
+							 $value['precoProduto'] = $value['precoProduto'] - $result;
+							 echo number_format($value['precoProduto'], 2, ',', '.'); ?></span> 10% off</p>
 							<p class="parcel">ou 12x de R$<span class="strong-text price-prod"><?php $parcelado = ($value['precoProduto'] / 12);
 								echo number_format($parcelado, 2, ',', ' ');
 							 ?></span></p>
@@ -43,21 +46,6 @@
 				</li>
 			<?php } ?>
 			</ul>	
-		</div>
-	</section>
-	<section class="section">
-		<div class="content-promotion">
-			<div class="photo-content">
-				<div class="content-tagima">
-					<p class="month-promotion">Promoção do mês</p>
-					<img src="assets/imagem/logo-tagima.png" class="logo-tagima">
-				</div>
-				<img src="assets/imagem/promotion.jpg" class="img-photo">
-			</div>
-			<div class="text-content">
-				<p class="subTitle text-promotion">Todos os instrumentos Tagima <br>com até 50% de desconto</p>
-				<a href="promocao.php" class="subTitle btn-more">veja +</a>
-			</div>
 		</div>
 	</section>
 	<?php

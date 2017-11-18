@@ -10,9 +10,38 @@
 		$precoProduto = $_POST['valorProduto'];
 		$categoriaProduto = $_POST['categoriaProduto'];
 		$promoProd = $_POST['promoProd'];
-		$caminhoImagem = $_POST['caminhoImg'];
+		$caminhoImagem = $_FILES['caminhoImg'];
 
-		$crud->setData($statusProduto, $promoProd ,$nomeProduto, $precoProduto, $categoriaProduto, $caminhoImagem);
+		if($_SERVER["REQUEST_METHOD"] === "POST")
+		{
+			$caminhoImagem = $_FILES['caminhoImg'];
+
+			if($caminhoImagem["error"])
+			{
+				throw new Exception("Error: " . $caminhoImagem["error"]);
+			}
+
+			$dirUploads = "../../assets/imagem/";
+
+			if(!is_dir($dirUploads))
+			{
+				mkdir($dirUploads);
+			}
+
+			if(move_uploaded_file($caminhoImagem["tmp_name"], $dirUploads . DIRECTORY_SEPARATOR . $caminhoImagem["name"]))
+			{
+				echo "Upload realizado com Sucesso";
+				$destinoFinal = 'assets' . '/' . 'imagem' . '/' . $caminhoImagem["name"];
+			}
+			
+			else
+			{
+				throw new Exception("Error: Não foi possível realizar o upload.");
+			}
+			
+		}
+
+		$crud->setData($statusProduto, $promoProd ,$nomeProduto, $precoProduto, $categoriaProduto, $destinoFinal);
 	}
 
 	if(empty($statusProduto) || empty($nomeProduto) || empty($precoProduto) || empty($categoriaProduto) ||

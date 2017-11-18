@@ -12,7 +12,7 @@
 	<div class="title-page">
 			<h1>Adicionar Fornecedor</h1>
 		</div>
-		<form method="POST" id="inserirTarget" action="../../controller/Inserir.php">
+		<form method="POST" id="inserirTarget" action="../../controller/Inserir.php" enctype="multipart/form-data">
 			<input type="hidden" name="statusProduto" value="1">
 			<div class="form-group row justify-content-sm-center">
 				<div class="col-sm-8">
@@ -39,7 +39,7 @@
 					<select class="form-control" name="promoProd">
 						<option value="" disabled selected>Promoção</option>
 						<option value="f">Sem promoção</option>
-						<option value="v">50% de desconto</option>
+						<option value="v">10% de desconto</option>
 					</select>
 				</div>
 				<div class="col-sm-4">

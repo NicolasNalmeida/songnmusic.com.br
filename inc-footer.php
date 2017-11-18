@@ -1,4 +1,4 @@
-<footer class="section">
+<footer class="">
 	<div class="footer">
 		<div class="content-map container">
 			<div class="menu-produtos">

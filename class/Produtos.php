@@ -115,6 +115,42 @@
             	));
 
 	    }
+
+	    public function select()
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectPromo()
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE promoProd = 'v'");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectCordas()
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT nomeProduto, precoProduto, caminhoImagem, categoriaProduto FROM produto WHERE categoriaProduto = 'cordas'");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectPercu()
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT nomeProduto, precoProduto, caminhoImagem, categoriaProduto FROM produto WHERE categoriaProduto = 'percussao'");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
 	}
 
 ?>
