@@ -9,6 +9,7 @@
 		private $categoriaProduto;
 		private $caminhoImagem;
 		private $promoProd;
+		private $descProduto;
 
 
 	
@@ -20,6 +21,16 @@
 	    public function setIdProduto($idProduto)
 	    {
 	        $this->idProduto = $idProduto;
+	    }
+
+	    public function getDescProduto()
+	    {
+	        return $this->descProduto;
+	    }
+
+	    public function setDescProduto($descProduto)
+	    {
+	        $this->descProduto = $descProduto;
 	    }
 
 	    public function getStatusProduto()
@@ -92,10 +103,11 @@
 	        $this->promoProd = $promoProd;
 	    }
 
-	    public function setData($statusProduto, $promoProd ,$nomeProduto, $precoProduto, $categoriaProduto, $caminhoImagem)
+	    public function setData($statusProduto, $promoProd, $descProduto ,$nomeProduto, $precoProduto, $categoriaProduto, $caminhoImagem)
 	    {
 	    	$this->setStatusProduto($statusProduto);
 	    	$this->setNomeProduto($nomeProduto);
+	    	$this->setDescProduto($descProduto);
 	    	$this->setPrecoProduto($precoProduto);
 	    	$this->setCategoriaProduto($categoriaProduto);
 	    	$this->setCaminhoImagem($caminhoImagem);
@@ -105,9 +117,10 @@
 	    public function insert()
 	    {
 	        $sql = new Sql();
-	        $sql->query('INSERT INTO produto (statusProduto, promoProd, nomeProduto, precoProduto, categoriaProduto, caminhoImagem) VALUES (:STATUS, :PROMO, :NOME, :PRECO, :CATEGORIA, :CAMINHO)', array(
+	        $sql->query('INSERT INTO produto (statusProduto, promoProd, descProduto, nomeProduto, precoProduto, categoriaProduto, caminhoImagem) VALUES (:STATUS, :PROMO, :DESCRICAO, :NOME, :PRECO, :CATEGORIA, :CAMINHO)', array(
 	                ':STATUS' => $this->getStatusProduto(),
 	                ':PROMO' => $this->getPromoProd(),
+	                ':DESCRICAO' => $this->getDescProduto(),
 	                ':NOME' => $this->getNomeProduto(),
 	                ':PRECO' => $this->getPrecoProduto(),
 	                ':CATEGORIA' => $this->getCategoriaProduto(),
@@ -119,7 +132,7 @@
 	    public function select()
 	    {
 	        $sql = new Sql();
-	        $stmt = $sql->query("SELECT nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto");
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto");
 
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
@@ -128,7 +141,7 @@
 	    public function selectPromo()
 	    {
 	        $sql = new Sql();
-	        $stmt = $sql->query("SELECT nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE promoProd = 'v'");
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE promoProd = 1 OR promoProd = 2 OR promoProd = 3");
 
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
@@ -137,7 +150,7 @@
 	    public function selectCordas()
 	    {
 	        $sql = new Sql();
-	        $stmt = $sql->query("SELECT nomeProduto, precoProduto, caminhoImagem, categoriaProduto FROM produto WHERE categoriaProduto = 'cordas'");
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'cordas'");
 
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
@@ -146,8 +159,16 @@
 	    public function selectPercu()
 	    {
 	        $sql = new Sql();
-	        $stmt = $sql->query("SELECT nomeProduto, precoProduto, caminhoImagem, categoriaProduto FROM produto WHERE categoriaProduto = 'percussao'");
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'percussao'");
 
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectProd($idProduto)
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query('SELECT idProduto, nomeProduto, descProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE idProduto = ' . $idProduto);
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
 	    }

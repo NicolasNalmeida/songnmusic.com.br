@@ -8,6 +8,7 @@
 		$statusProduto = $_POST['statusProduto'];
 		$nomeProduto = $_POST['nomeProduto'];
 		$precoProduto = $_POST['valorProduto'];
+		$descProd = $_POST['descProd'];
 		$categoriaProduto = $_POST['categoriaProduto'];
 		$promoProd = $_POST['promoProd'];
 		$caminhoImagem = $_FILES['caminhoImg'];
@@ -41,10 +42,10 @@
 			
 		}
 
-		$crud->setData($statusProduto, $promoProd ,$nomeProduto, $precoProduto, $categoriaProduto, $destinoFinal);
+		$crud->setData($statusProduto, $promoProd, $descProd ,$nomeProduto, $precoProduto, $categoriaProduto, $destinoFinal);
 	}
 
-	if(empty($statusProduto) || empty($nomeProduto) || empty($precoProduto) || empty($categoriaProduto) ||
+	if(empty($statusProduto) || empty($nomeProduto) || empty($descProd) || empty($precoProduto) || empty($categoriaProduto) ||
 		empty($caminhoImagem) || empty($promoProd))
 	{
 		echo '<h1 style="display: block; widht: 100%; text-align: center;">Campos vazio, preecha com dados válidos</h1>';
@@ -57,4 +58,4 @@
 		$insert = $crud->insert();
 
 		header("Location: ../views/insert-produto/insert-view.php");
-	} 
+	}

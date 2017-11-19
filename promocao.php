@@ -8,7 +8,7 @@
 		include "inc-header.php";
 	?>
 	<section class="section container">
-		<h1 class="title border-detail">Promoção do mês: <span class="strong-text">TAGIMA</span></h1>
+		<h1 class="title border-detail">Promoção do <span class="strong-text">mês</span></h1>
 		<div class="main-produto">
 			<?php 
 				require_once "class/Sql.php";
@@ -26,7 +26,7 @@
 							<figure class="filter-prod">
 								<img src="<?php echo $value['caminhoImagem']?>">
 							</figure>
-							<a href="javascript:void(0)">
+							<a href="produto-interno.php?tempId=<?php echo $id; ?>">
 								<div class="cart">
 									<p>+</p>
 								</div>
@@ -34,12 +34,44 @@
 						</div>
 						<figcaption class="description-prod">
 							<p class="greatText strong-text"><?php echo $value['nomeProduto']; ?></p>
-							<p class="price">R$<span class="strong-text price-prod"><?php
-							 $result = ($value['precoProduto'] * 0.10);
-							 $value['precoProduto'] = $value['precoProduto'] - $result;
-							 echo number_format($value['precoProduto'], 2, ',', '.'); ?></span> 10% off</p>
+							<p class="price">
+								R$<span class="strong-text price-prod">
+									<?php 
+										if($value['promoProd'] == 1)
+										{
+											$promo = $value['precoProduto'] * 0.1;
+											$value['precoProduto'] = $value['precoProduto'] - $promo;
+											echo number_format($value['precoProduto'], 2, ',', '.');
+										}
+										else if($value['promoProd'] == 2)
+										{
+											$promo = $value['precoProduto'] * 0.2;
+											$value['precoProduto'] = $value['precoProduto'] - $promo;
+											echo number_format($value['precoProduto'], 2, ',', '.');
+										}
+										else if($value['promoProd'] == 3)
+										{
+											$promo = $value['precoProduto'] * 0.3;
+											$value['precoProduto'] = $value['precoProduto'] - $promo;
+											echo number_format($value['precoProduto'], 2, ',', '.');
+										}
+										else
+										{
+											echo number_format($value['precoProduto'], 2, ',', '.');
+										}
+									?>
+								</span>
+								<?php 
+									if($value['promoProd'] == 1)
+										echo '10% off';
+									else if($value['promoProd'] == 2)
+										echo "20% off";
+									else if($value['promoProd'] == 3)
+										echo "30% off";
+								?>
+							</p>
 							<p class="parcel">ou 12x de R$<span class="strong-text price-prod"><?php $parcelado = ($value['precoProduto'] / 12);
-								echo number_format($parcelado, 2, ',', ' ');
+								echo number_format($parcelado, 2, ',', '.');
 							 ?></span></p>
 						</figcaption>
 					</div>

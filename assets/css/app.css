@@ -2889,7 +2889,7 @@ img {
 .content-promotion .photo-content .month-promotion {
   text-align: center;
   margin: 0;
-  font-size: 40px;
+  font-size: 60px;
   color: #fff;
   font-family: 'Lobster', cursive;
 }
@@ -3024,3 +3024,52 @@ img {
   display: block;
   color: #fff;
 }
+
+/* line 1, ../scss/pages/_produto-interno.scss */
+.interno {
+  margin-bottom: 50px;
+}
+/* line 4, ../scss/pages/_produto-interno.scss */
+.interno .info-price {
+  margin-top: 20px;
+}
+@media (max-width: 576px) {
+  /* line 9, ../scss/pages/_produto-interno.scss */
+  .interno .img-prod {
+    text-align: center;
+  }
+}
+/* line 17, ../scss/pages/_produto-interno.scss */
+.interno .pag {
+  font-size: 18px;
+  margin-right: 10px;
+}
+/* line 23, ../scss/pages/_produto-interno.scss */
+.interno .desc-prod {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+/* line 29, ../scss/pages/_produto-interno.scss */
+.interno .price,
+.interno .parcel {
+  line-height: 8px;
+  font-size: 20px;
+}
+/* line 36, ../scss/pages/_produto-interno.scss */
+.interno .comprar {
+  margin-top: 30px;
+}
+/* line 39, ../scss/pages/_produto-interno.scss */
+.interno .comprar .btn-comprar {
+  color: #fff;
+  background-color: #282828;
+  font-size: 18px;
+  padding: 10px;
+  transition: .3s;
+}
+/* line 47, ../scss/pages/_produto-interno.scss */
+.interno .comprar .btn-comprar:hover {
+  background-color: #606060;
+}
+
+/*# sourceMappingURL=app.css.map */

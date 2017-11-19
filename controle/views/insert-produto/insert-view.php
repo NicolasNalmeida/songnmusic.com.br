@@ -39,11 +39,18 @@
 					<select class="form-control" name="promoProd">
 						<option value="" disabled selected>Promoção</option>
 						<option value="f">Sem promoção</option>
-						<option value="v">10% de desconto</option>
+						<option value="1">10% de desconto</option>
+						<option value="2">20% de desconto</option>
+						<option value="3">30% de desconto</option>
 					</select>
 				</div>
 				<div class="col-sm-4">
 					<input type="file" class="form-control" name="caminhoImg">
+				</div>
+			</div>
+			<div class="form-group row justify-content-sm-center">
+				<div class="col-sm-8">
+					<textarea class="form-control" name="descProd" rows="8" style="resize: none;" placeholder="Descrição do Produto"></textarea>
 				</div>
 			</div>
 			<div class="form-group row justify-content-sm-center">

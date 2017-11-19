@@ -20,3 +20,8 @@ $('.close-menu').on('click', function()
 {
 	$('.menu-content').removeClass('display-on');
 });
+
+$('.imprimir').on('click', function()
+{
+	window.print();
+});
