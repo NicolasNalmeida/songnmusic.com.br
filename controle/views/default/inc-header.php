@@ -14,9 +14,8 @@
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="../insert-produto/insert-view.php">Adicionar Produtos</a>
-							<a class="dropdown-item" href="../">Selecionar Produtos</a>
-							<a class="dropdown-item" href="../">Atualizar Produtos</a>
-							<a class="dropdown-item" href="../">Deletar Produtos</a>
+							<a class="dropdown-item" href="../update-produto/update.php">Atualizar Produtos</a>
+							<a class="dropdown-item" href="../delete-produto/delete.php">Deletar Produtos</a>
 						</div>
 					</li>
 				</ul>

@@ -19,7 +19,7 @@
 			{
 				$id = $_GET['tempId'];
 				$selectProd = $crud->selectProd($id);
-				print_r($selectProd);
+				// print_r($selectProd);
 			}
 			else
 			{
@@ -86,7 +86,7 @@
 					<label class="pag">Boleto</label><input type="radio" value="boleto" name="pagamento">
 				</div>
 				<div class="comprar">
-					<a href="detalhe-prod.php?idProduto=<?php echo $idProd ?>" class="btn-comprar">Comprar</a>
+					<a href="detalhe-prod.php?add=carrinho&id=<?php echo $idProd ?>" class="btn-comprar">+ Carrinho</a>
 				</div>
 			</div>
 		</div>

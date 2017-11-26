@@ -25,3 +25,8 @@ $('.imprimir').on('click', function()
 {
 	window.print();
 });
+
+$('.btn-buscar').on('click', function(){
+	var pesquisa = $('.form-control').val();
+	$(this).attr('href', 'pesquisar.php?pesquisa='+pesquisa);
+});

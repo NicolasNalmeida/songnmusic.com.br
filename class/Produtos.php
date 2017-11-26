@@ -11,8 +11,6 @@
 		private $promoProd;
 		private $descProduto;
 
-
-	
 	    public function getIdProduto()
 	    {
 	        return $this->idProduto;
@@ -132,7 +130,25 @@
 	    public function select()
 	    {
 	        $sql = new Sql();
-	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto");
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE statusProduto = 1");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectFilter($pesquisa)
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE statusProduto = 1 AND (nomeProduto LIKE '%$pesquisa%')");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectDelete()
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem FROM produto WHERE statusProduto = 1");
 
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
@@ -141,7 +157,7 @@
 	    public function selectPromo()
 	    {
 	        $sql = new Sql();
-	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE promoProd = 1 OR promoProd = 2 OR promoProd = 3");
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE (promoProd = 1 OR promoProd = 2 OR promoProd = 3) AND statusProduto = 1");
 
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
@@ -150,7 +166,7 @@
 	    public function selectCordas()
 	    {
 	        $sql = new Sql();
-	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'cordas'");
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'cordas' AND statusProduto = 1");
 
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
@@ -159,7 +175,34 @@
 	    public function selectPercu()
 	    {
 	        $sql = new Sql();
-	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'percussao'");
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'percussao' AND statusProduto = 1");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectTeclas()
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'teclas' AND statusProduto = 1");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectSopro()
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'sopro' AND statusProduto = 1");
+
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        return $result;
+	    }
+
+	    public function selectEquip()
+	    {
+	        $sql = new Sql();
+	        $stmt = $sql->query("SELECT idProduto, nomeProduto, precoProduto, caminhoImagem, categoriaProduto, promoProd FROM produto WHERE categoriaProduto = 'equipamentos' AND statusProduto = 1");
 
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
@@ -171,6 +214,34 @@
 	        $stmt = $sql->query('SELECT idProduto, nomeProduto, descProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE idProduto = ' . $idProduto);
 	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	        return $result;
+	    }
+
+
+	    public function carrinhoProd($idProduto)
+	    {
+	    	$sql = new Sql();
+	        $stmt = $sql->query('SELECT idProduto, nomeProduto, descProduto, precoProduto, caminhoImagem, promoProd FROM produto WHERE idProduto = ' . $idProduto);
+	        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);    
+	    }
+
+	    public function delete($id)
+	    {
+	        $sql = new Sql();
+	        $this->setIdProduto($id);
+	        $stmt = $sql->query("UPDATE produto SET statusProduto = 0 WHERE idProduto = :ID", array(
+	            ':ID' => $this->getIdProduto()
+	        ));
+	    }
+
+	    public function update($id)
+	    {
+	        $sql = new Sql();
+	        $this->setIdProduto($id);
+	        $stmt = $sql->query("UPDATE produto SET nomeProduto = :NOME, precoProduto = :PRECO WHERE idProduto = :ID", array(
+	                ':ID' => $this->getIdProduto(),
+	                ':NOME' => $this->getNomeProduto(),
+	                ':PRECO' => $this->getPrecoProduto()
+            ));
 	    }
 	}
 

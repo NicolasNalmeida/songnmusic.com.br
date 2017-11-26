@@ -2629,8 +2629,6 @@ img {
   width: 40px;
   height: 40px;
   display: block;
-  border-radius: 50%;
-  background-color: #fff;
 }
 /* line 98, ../scss/pages/_header.scss */
 .banner .menu-header .login-cadastrese .link-login {
@@ -3040,26 +3038,59 @@ img {
   }
 }
 /* line 17, ../scss/pages/_produto-interno.scss */
+.interno .img-carrinho {
+  width: 160px;
+}
+/* line 22, ../scss/pages/_produto-interno.scss */
+.interno .content-carrinho {
+  border-bottom: 1px solid #9b9b9b;
+  margin-bottom: 18px;
+}
+/* line 28, ../scss/pages/_produto-interno.scss */
+.interno .quantidade {
+  padding-top: 85px;
+}
+/* line 33, ../scss/pages/_produto-interno.scss */
+.interno .remover {
+  margin-top: 80px;
+  background-color: #333;
+  padding: 5px;
+  text-align: center;
+  transition: .3s;
+}
+/* line 41, ../scss/pages/_produto-interno.scss */
+.interno .remover:hover {
+  background-color: #686868;
+}
+/* line 46, ../scss/pages/_produto-interno.scss */
+.interno .remover a {
+  color: #fff;
+}
+/* line 52, ../scss/pages/_produto-interno.scss */
+.interno .carrinho-image {
+  padding-top: 45px;
+}
+/* line 57, ../scss/pages/_produto-interno.scss */
 .interno .pag {
   font-size: 18px;
   margin-right: 10px;
 }
-/* line 23, ../scss/pages/_produto-interno.scss */
+/* line 63, ../scss/pages/_produto-interno.scss */
 .interno .desc-prod {
   font-size: 20px;
   margin-bottom: 30px;
 }
-/* line 29, ../scss/pages/_produto-interno.scss */
+/* line 69, ../scss/pages/_produto-interno.scss */
 .interno .price,
 .interno .parcel {
   line-height: 8px;
   font-size: 20px;
 }
-/* line 36, ../scss/pages/_produto-interno.scss */
+/* line 76, ../scss/pages/_produto-interno.scss */
 .interno .comprar {
   margin-top: 30px;
 }
-/* line 39, ../scss/pages/_produto-interno.scss */
+/* line 79, ../scss/pages/_produto-interno.scss */
 .interno .comprar .btn-comprar {
   color: #fff;
   background-color: #282828;
@@ -3067,7 +3098,7 @@ img {
   padding: 10px;
   transition: .3s;
 }
-/* line 47, ../scss/pages/_produto-interno.scss */
+/* line 87, ../scss/pages/_produto-interno.scss */
 .interno .comprar .btn-comprar:hover {
   background-color: #606060;
 }

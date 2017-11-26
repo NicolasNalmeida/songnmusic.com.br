@@ -8,13 +8,15 @@
 			</div>
 			<div class="form-group buscar ">
 				<input class="form-control input-buscar" type="text" name="buscar" placeholder="pesquisar">
-				<input type="submit" class="btn-buscar" name="enviar" value="ok">
+				<a href="" class="btn-buscar">ok</a>
 			</div>
 			<div class="carrinho-content">
-				<a href="javascript:void(0)" class="carrinho"></a>
+				<a href="detalhe-prod.php" class="carrinho">
+					<img src="assets/imagem/cart.svg">
+				</a>
 			</div>
 			<div class=" login-cadastrese">
-				<a class="link-login" href="javascript:void(0)">login</a>
+				<!-- <a class="link-login" href="javascript:void(0)">login</a> -->
 			</div>
 		</div>
 		<div class="menu-content display-off">
@@ -25,10 +27,10 @@
 				<li><a class="item-menu" href="index.php">Home</a></li>
 				<li><a class="item-menu" href="cordas.php">Cordas</a></li>
 				<li><a class="item-menu" href="percussao.php">Percussão</a></li>
-				<li><a class="item-menu" href="javascript:void(0)">Teclas</a></li>
-				<li><a class="item-menu" href="javascript:void(0)">Sorpro</a></li>
-				<li><a class="item-menu" href="javascript:void(0)">Mais Equipamentos</a></li>
-				<li><a class="item-menu" href="javascript:void(0)">Contato</a></li>
+				<li><a class="item-menu" href="teclas.php">Teclas</a></li>
+				<li><a class="item-menu" href="sopro.php">Sorpro</a></li>
+				<li><a class="item-menu" href="equipamento.php">Mais Equipamentos</a></li>
+				<!-- <li><a class="item-menu" href="javascript:void(0)">Contato</a></li> -->
 			</ul>
 		</div>
 		<div class="slick-banner">

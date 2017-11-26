@@ -10,7 +10,7 @@
 
 <section class="inserir-content container">
 	<div class="title-page">
-			<h1>Adicionar Fornecedor</h1>
+			<h1>Adicionar Produto</h1>
 		</div>
 		<form method="POST" id="inserirTarget" action="../../controller/Inserir.php" enctype="multipart/form-data">
 			<input type="hidden" name="statusProduto" value="1">
