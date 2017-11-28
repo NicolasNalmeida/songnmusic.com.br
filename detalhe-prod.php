@@ -21,6 +21,22 @@
 			unset($_SESSION['itens'][$idProd]);
 		}
 
+		if(isset($_GET['action']) && $_GET['action'] == 'less')
+		{
+			$idProd = $_GET['id'];
+			$_SESSION['itens'][$idProd] -= 1;
+			if($_SESSION['itens'][$idProd] <= 0)
+			{
+				unset($_SESSION['itens'][$idProd]);
+			}
+		}
+
+		if(isset($_GET['action']) && $_GET['action'] == 'add')
+		{
+			$idProd = $_GET['id'];
+			$_SESSION['itens'][$idProd] += 1;
+		}
+
 		if(isset($_GET['add']) && $_GET['add'] == 'carrinho')
 		{
 			// ADICIONA NO CARRINHO
@@ -39,12 +55,43 @@
 		if (count($_SESSION['itens']) != 0)
 		{
 			$conn = new Sql();
+			$total = 0;
 			foreach ($_SESSION['itens'] as $produtos => $quantidade) {
 				$stmt = $conn->query('SELECT * FROM produto WHERE idProduto = :ID', array(
 					':ID' => $produtos
 				));
-	        	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);	        	
-			}    
+	        	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	        	foreach ($result as $value) {
+					if($value['promoProd'] == 1)
+					{
+						$valor = $value['precoProduto'] * 0.10;
+						$resultTotal = $value['precoProduto'] - $valor;
+						// echo $value['precoProduto'];
+					}
+
+					else if($value['promoProd'] == 2)
+					{
+						$valor = $value['precoProduto'] * 0.20;
+						$resultTotal = $value['precoProduto'] - $valor;
+						// echo $value['precoProduto'];
+					}
+
+					else if($value['promoProd'] == 3)
+					{
+						$valor = $value['precoProduto'] * 0.30;
+						$resultTotal = $value['precoProduto'] - $valor;
+						// echo $value['precoProduto'];
+					}
+					else
+					{
+						// echo $value['precoProduto'];
+						$resultTotal = $value['precoProduto'];
+					}
+					$total = $total + $resultTotal;
+				}
+			}
+
+			$totalPrice = $total;
 		}
 	?>
 	<section class="section container interno">
@@ -123,7 +170,9 @@
 			</div>
 			<div class="col-sm">
 				<div class="qtde-prod">
+					<a href="detalhe-prod.php?action=less&id=<?php echo $value['idProduto']; ?>" class="btn-less">-</a>
 					<p class="quantidade price"><?php echo $quantidade; ?></p>
+					<a href="detalhe-prod.php?action=add&id=<?php echo $value['idProduto']; ?>" class="btn-more">+</a>
 				</div>
 			</div>
 			<div class="col-sm-2">
@@ -134,8 +183,18 @@
 		</div>
 		<?php } ?>
 		<?php } ?>
-		<div class="comprar col-sm">
-			<a href="boleto_itau.php" class="btn-comprar">Finalizar compra</a>
+		<div class="container">
+			<h2>Total: R$ <?php echo number_format($totalPrice, 2, ',', '.') ?></h2>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="comprar col-sm-6">
+					<a href="boleto_itau.php?total=<?php echo $totalPrice ?>" class="btn-finalizar">Finalizar compra</a>
+				</div>
+				<div class="comprar col-sm-6">
+					<a href="index.php" class="btn-comprar float-right">Continue comprando</a>
+				</div>
+			</div>
 		</div>
 	</section>
 	<?php

@@ -25,11 +25,6 @@
 		margin-bottom: 18px;
 	}
 
-	.quantidade
-	{
-		padding-top: 85px;
-	}
-
 	.remover
 	{
 		margin-top: 80px;
@@ -76,6 +71,7 @@
 	.comprar
 	{
 		margin-top: 30px;
+		.btn-finalizar,
 		.btn-comprar
 		{
 			color: #fff;
@@ -88,6 +84,11 @@
 			{
 				background-color: #606060;
 			}
+		}
+
+		.float-right
+		{
+			float: right;
 		}
 	}
 }

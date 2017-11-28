@@ -1,0 +1,42 @@
+.qtde-prod
+{
+	.btn-more,
+	.quantidade,
+	.btn-less
+	{
+		text-align: center;
+		width: calc(100% / 3);
+		float: left;
+		margin-top: 80px;
+	}
+
+	.quantidade
+	{
+		line-height: 1;
+	}
+
+	.btn-more,
+	.btn-less
+	{
+		background-color: #333;
+		color: #fff;
+		width: 25px;
+		height: 25px;
+		transition: .3s;
+
+		&:hover
+		{
+			border-radius: 50%;
+		}
+	}
+
+	.btn-finalizar
+	{
+		float: left;
+	}
+
+	.btn-comprar
+	{
+		float: right;
+	}
+}

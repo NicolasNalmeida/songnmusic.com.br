@@ -17,9 +17,11 @@
 				$crud = new Produtos();
 
 				$selectAll = $crud->selectPromo();
+				// print_r($selectAll);
 			?>
 			<ul class="list-prod clearfix">
 			<?php foreach ($selectAll as $value) {?>
+			<?php $id = $value['idProduto'];?>
 				<li class="item-prod">
 					<div class="content-prod">
 						<div class="before-filter">
